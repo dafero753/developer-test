@@ -5,8 +5,9 @@
   <body>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script>
-        function setup() {
+        function setup(target) {
           //Write your code here
+          console.log(buttons);
         }
 
         document.body.innerHTML = `<ol>
@@ -15,10 +16,19 @@
           <li><button>Up!</button>Eggs<button>Down!</button></li>
         </ol>`;
 
-        setup();
-        $("button").get(2).click();
+        //setup();
+        //$("button").get(2).click();
+        let buttons= document.getElementsByTagName('button');
+        
+        for (let i = 0; i < buttons.length; i++) {
+          buttons[i].setAttribute('position', i)
+          buttons[i].addEventListener('click', function(event) {
+            event.preventDefault()
+            alert('The position of the element ' + event.target.innerHTML + ' is ' + event.target.getAttribute('position'))
+          })
+        }
 
-        console.log(document.body.innerHTML);
+        
     </script>
   </body>
 </html>

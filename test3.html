@@ -4,8 +4,9 @@
   </head>
   <body>
     <script>
-        function setup() {
+        function setup(target) {
           // Write your code here.
+          document.body.removeChild(target.parentElement)
         }
 
         // Example case. 
@@ -19,10 +20,16 @@
           <button class="remove">X</button>
         </div>`;
 
-        setup();
+        //setup();
 
-        document.getElementsByClassName("remove")[0].click();
-        console.log(document.body.innerHTML);
+        let buttons = document.getElementsByClassName("remove")
+
+        //connect click event on each button
+        for(let i=0; i < buttons.length; i++){
+          let button = buttons[i]
+          button.addEventListener('click', () => setup(button));
+        }
+        
     </script>
   </body>
 </html>

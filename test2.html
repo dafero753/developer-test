@@ -5,6 +5,25 @@
     <title>Styling links</title>
     <style type="text/css">
       /* Write your CSS solution here (do not edit the surrounding HTML) */
+      a {
+        cursor: help;
+        display: inline-block;
+        padding: 0 1rem;
+        height: 2rem;
+        
+      }
+
+      a:hover {
+        font-size: 0; 
+        text-decoration: none;
+      }
+
+      a:hover::before {
+        content: '>CHECK DOCUMENTATION<';
+        font-size: 1rem;
+      }
+
+
     </style>
   </head>
   <body>

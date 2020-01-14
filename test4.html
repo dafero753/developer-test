@@ -9,12 +9,14 @@
     <a href="//www.google.com">Google</a><br/>
     <script>
       function registerHandlers() {
-        var as = document.getElementsByTagName('a');
-        for (var i = 0; i < as.length; i++) {
-          as[i].onclick = function() {
-            alert(i);
-            return false;
-          }
+        let listHREF = document.getElementsByTagName('a');
+        
+        for (let i = 0; i < listHREF.length; i++) {
+          listHREF[i].setAttribute('position', i)
+          listHREF[i].addEventListener('click', function(event) {
+            event.preventDefault()
+            alert('The position of the element ' + event.target.innerHTML + ' is ' + event.target.getAttribute('position'))
+          })
         }
       }
       registerHandlers();
